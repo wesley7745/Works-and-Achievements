@@ -12,29 +12,35 @@
    
    <style>
    @media (max-width: 768px) {
-   /* 導航欄頭像調整 */
-   .navbar-brand img.img-profile {
-       width: 40px !important;
-       height: 40px !important;
-       margin-right: 10px;
-       border-radius: 50%;
-       display: inline-block !important;
-   }
-
-   /* 橫屏模式下的圖片調整 */
-   @media (orientation: landscape) {
-       img.img-fluid {
-           max-height: 70vh;
-           width: auto !important;
-       }
-
-       .col-6 div {
-           max-height: 70vh;
-       }
-   }
        /* 基本佈局調整 */
        .resume-section {
            padding: 2rem 1rem;
+       }
+
+       /* 移除原本的頭貼顯示 */
+       .navbar-brand img.img-profile {
+           display: none !important;
+       }
+
+       /* 標題旁頭貼樣式 */
+       .profile-title-img {
+           width: 40px !important;
+           height: 40px !important;
+           margin-right: 10px;
+           border-radius: 50%;
+           object-fit: cover;
+           display: inline-block !important;
+       }
+
+       /* 隱藏桌面版標題 */
+       .desktop-title {
+           display: none !important;
+       }
+
+       /* 顯示手機版標題 */
+       .mobile-title {
+           display: flex !important;
+           align-items: center;
        }
        
        /* PDF 處理 */
@@ -54,20 +60,6 @@
        /* 移除多餘的PDF按鈕 */
        .mobile-pdf-button:first-of-type {
            display: none !important;
-       }
-
-       /* 導航欄頭像調整 */
-       .navbar-brand .d-block.d-lg-none {
-           display: flex !important;
-           align-items: center;
-       }
-       
-       .navbar-brand img.img-profile {
-           width: 50px;
-           height: 50px;
-           margin-right: 10px;
-           border-radius: 50%;
-           display: inline-block !important;
        }
        
        /* 圖片排版調整 */
@@ -100,19 +92,17 @@
        div[style*="width: 40%"] {
            width: 100% !important;
        }
-       
-       /* 社交圖標調整 */
-       .social-icons .social-icon {
-           width: 3rem;
-           height: 3rem;
-           font-size: 1.25rem;
-           margin: 0.5rem;
-       }
-       
-       /* 標籤調整 */
-       .badge {
-           margin: 0.25rem;
-           display: inline-block;
+
+       /* 橫屏模式下的圖片調整 */
+       @media (orientation: landscape) {
+           img.img-fluid {
+               max-height: 70vh;
+               width: auto !important;
+           }
+
+           .col-6 div {
+               max-height: 70vh;
+           }
        }
    }
    
@@ -131,6 +121,14 @@
        color: white;
        text-decoration: none;
    }
+
+   .mobile-title {
+       display: none;
+   }
+
+   .desktop-title {
+       display: block;
+   }
    </style>
 <!-- 在每個 PDF object 後添加的下載按鈕 HTML -->
 <div class="mobile-pdf-button">
@@ -139,7 +137,7 @@
     </a>
 </div>
 
-<script>
+   <script>
    document.addEventListener('DOMContentLoaded', function() {
        const pdfObjects = document.querySelectorAll('object[data$=".pdf"]');
        pdfObjects.forEach(obj => {
@@ -167,15 +165,10 @@
        <link href="css/styles.css" rel="stylesheet" />
    </head>
    <body id="page-top">
-       <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
        <a class="navbar-brand js-scroll-trigger" href="#page-top">
-           <span class="d-block d-lg-none">
-               <img class="img-fluid img-profile" src="assets/img/profile.jpg" alt="Profile">
-               Wesley
-           </span>
-           <span class="d-none d-lg-block">
-               <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg" alt="..." />
-           </span>
+           <span class="d-block d-lg-none">Wesley</span>
+           <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg" alt="..." /></span>
        </a>
            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
            <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -190,9 +183,15 @@
        </nav>
 
        <div class="container-fluid p-0">
-           <section class="resume-section" id="about">
-               <div class="resume-section-content">
-                   <h1 class="mb-0">黃暐宸<span class="text-primary">Wesley Huang</span></h1>
+       <section class="resume-section" id="about">
+           <div class="resume-section-content">
+               <!-- 桌面版標題 -->
+               <h1 class="mb-0 desktop-title">黃暐宸<span class="text-primary">WESLEY HUANG</span></h1>
+               <!-- 手機版標題（帶頭貼） -->
+               <div class="mb-0 mobile-title">
+                   <img class="profile-title-img" src="assets/img/profile.jpg" alt="Profile">
+                   <h1>黃暐宸<span class="text-primary">WESLEY HUANG</span></h1>
+               </div>
                    <div class="subheading mb-5">
                        +886 972-572-606 ·
                        <a href="mailto:wesleyseawatch@gmail.com">wesleyseawatch@gmail.com</a>

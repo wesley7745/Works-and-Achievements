@@ -12,6 +12,15 @@
    
    <style>
    @media (max-width: 768px) {
+          /* 移除原本的下載PDF按鈕 */
+    .mobile-pdf-button:first-of-type {
+        display: none !important;
+    }
+    
+    /* 修正內容間距 */
+    body {
+        padding-top: 0;
+    }
        /* 基本佈局調整 */
        .resume-section {
            padding: 2rem 1rem;
@@ -24,8 +33,8 @@
 
        /* 標題旁頭貼樣式 */
        .profile-title-img {
-           width: 40px !important;
-           height: 40px !important;
+           width: 100px !important;
+           height: 100px !important;
            margin-right: 10px;
            border-radius: 50%;
            object-fit: cover;

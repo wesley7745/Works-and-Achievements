@@ -1,103 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-           <style>
-    @media (max-width: 768px) {
-        /* 基本佈局調整 */
-        .resume-section {
-            padding: 2rem 1rem;
-        }
-        
-        /* PDF 處理 */
-        object[data$=".pdf"] {
-            display: none;
-        }
-        
-        .mobile-pdf-button {
-            display: block !important;
-            text-align: center;
-            margin: 1rem 0;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 0.5rem;
-        }
-        
-        .btn-download {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background-color: #bd5d38;
-            color: white;
-            border-radius: 0.25rem;
-            text-decoration: none;
-        }
-        
-        /* 圖片排版調整 */
-        .col-6, .col-md-6 {
-            width: 100% !important;
-            padding: 0 15px;
-            margin-bottom: 20px;
-        }
-        
-        .row.g-3 {
-            margin: 0;
-        }
-        
-        /* 移除固定高度限制 */
-        div[style*="height"] {
-            height: auto !important;
-            max-height: none;
-        }
-        
-        /* 圖片樣式優化 */
-        .img-fluid {
-            width: 100% !important;
-            height: auto !important;
-            max-height: 400px;
-            object-fit: contain !important;
-            margin-bottom: 10px;
-        }
-        
-        /* Toyota 專案圖片調整 */
-        div[style*="width: 40%"] {
-            width: 100% !important;
-        }
-        
-        /* 導航欄調整 */
-        #sideNav {
-            padding: 1rem;
-        }
-        
-        .navbar-brand img {
-            max-width: 8rem;
-        }
-        
-        /* 社交圖標調整 */
-        .social-icons .social-icon {
-            width: 3rem;
-            height: 3rem;
-            font-size: 1.25rem;
-            margin: 0.5rem;
-        }
-        
-        /* 標籤調整 */
-        .badge {
-            margin: 0.25rem;
-            display: inline-block;
-        }
-    }
-    
-    /* 桌面版隱藏移動端按鈕 */
-    .mobile-pdf-button {
-        display: none;
-    }
-    
-    /* PDF 按鈕樣式 */
-    .btn-download:hover {
-        background-color: #a24b2c;
-        color: white;
-        text-decoration: none;
-    }
-    </style>
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+   <title>Resume - wesley</title>
+   <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+   <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+   <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" />
+   <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" />
+   <link href="css/styles.css" rel="stylesheet" />
+   
+   <style>
+   @media (max-width: 768px) {
+       /* 基本佈局調整 */
+       .resume-section {
+           padding: 2rem 1rem;
+       }
+       
+       /* PDF 處理 */
+       object[data$=".pdf"] {
+           display: none;
+       }
+       
+       .mobile-pdf-button {
+           display: block !important;
+           text-align: center;
+           margin: 1rem 0;
+           padding: 1rem;
+           background: #f8f9fa;
+           border-radius: 0.5rem;
+       }
+       
+       /* 移除多餘的PDF按鈕 */
+       .mobile-pdf-button:first-of-type {
+           display: none !important;
+       }
+
+       /* 導航欄頭像調整 */
+       .navbar-brand .d-block.d-lg-none {
+           display: flex !important;
+           align-items: center;
+       }
+       
+       .navbar-brand img.img-profile {
+           width: 50px;
+           height: 50px;
+           margin-right: 10px;
+           border-radius: 50%;
+           display: inline-block !important;
+       }
+       
+       /* 圖片排版調整 */
+       .col-6, .col-md-6 {
+           width: 100% !important;
+           padding: 0 15px;
+           margin-bottom: 20px;
+       }
+       
+       .row.g-3 {
+           margin: 0;
+       }
+       
+       /* 移除固定高度限制 */
+       div[style*="height"] {
+           height: auto !important;
+           max-height: none;
+       }
+       
+       /* 圖片樣式優化 */
+       .img-fluid {
+           width: 100% !important;
+           height: auto !important;
+           max-height: 400px;
+           object-fit: contain !important;
+           margin-bottom: 10px;
+       }
+       
+       /* Toyota 專案圖片調整 */
+       div[style*="width: 40%"] {
+           width: 100% !important;
+       }
+       
+       /* 社交圖標調整 */
+       .social-icons .social-icon {
+           width: 3rem;
+           height: 3rem;
+           font-size: 1.25rem;
+           margin: 0.5rem;
+       }
+       
+       /* 標籤調整 */
+       .badge {
+           margin: 0.25rem;
+           display: inline-block;
+       }
+   }
+   
+   /* PDF 按鈕樣式 */
+   .btn-download {
+       display: inline-block;
+       padding: 0.5rem 1rem;
+       background-color: #bd5d38;
+       color: white;
+       border-radius: 0.25rem;
+       text-decoration: none;
+   }
+   
+   .btn-download:hover {
+       background-color: #a24b2c;
+       color: white;
+       text-decoration: none;
+   }
+   </style>
 <!-- 在每個 PDF object 後添加的下載按鈕 HTML -->
 <div class="mobile-pdf-button">
     <a href="您的PDF路徑" class="btn-download" download>
@@ -106,22 +120,21 @@
 </div>
 
 <script>
-// 自動為所有 PDF object 添加移動端下載按鈕
-document.addEventListener('DOMContentLoaded', function() {
-    const pdfObjects = document.querySelectorAll('object[data$=".pdf"]');
-    pdfObjects.forEach(obj => {
-        const pdfUrl = obj.getAttribute('data');
-        const button = document.createElement('div');
-        button.className = 'mobile-pdf-button';
-        button.innerHTML = `
-            <a href="${pdfUrl}" class="btn-download" download>
-                <i class="fas fa-download"></i> 作品下載連結
-            </a>
-        `;
-        obj.parentNode.insertBefore(button, obj.nextSibling);
-    });
-});
-</script>
+   document.addEventListener('DOMContentLoaded', function() {
+       const pdfObjects = document.querySelectorAll('object[data$=".pdf"]');
+       pdfObjects.forEach(obj => {
+           const pdfUrl = obj.getAttribute('data');
+           const button = document.createElement('div');
+           button.className = 'mobile-pdf-button';
+           button.innerHTML = `
+               <a href="${pdfUrl}" class="btn-download" download>
+                   <i class="fas fa-download"></i> 作品下載連結
+               </a>
+           `;
+           obj.parentNode.insertBefore(button, obj.nextSibling);
+       });
+   });
+   </script>
        <meta charset="utf-8" />
        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
        <meta name="description" content="" />
@@ -135,10 +148,15 @@ document.addEventListener('DOMContentLoaded', function() {
    </head>
    <body id="page-top">
        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-           <a class="navbar-brand js-scroll-trigger" href="#page-top">
-               <span class="d-block d-lg-none">Wesley</span>
-               <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg" alt="..." /></span>
-           </a>
+       <a class="navbar-brand js-scroll-trigger" href="#page-top">
+           <span class="d-block d-lg-none">
+               <img class="img-fluid img-profile" src="assets/img/profile.jpg" alt="Profile">
+               Wesley
+           </span>
+           <span class="d-none d-lg-block">
+               <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg" alt="..." />
+           </span>
+       </a>
            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
            <div class="collapse navbar-collapse" id="navbarResponsive">
                <ul class="navbar-nav">

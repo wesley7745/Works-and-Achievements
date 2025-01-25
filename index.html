@@ -1,96 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-       <style>
-/* Mobile Styles */
-@media (max-width: 768px) {
-    /* PDF 處理 */
-    .pdf-viewer {
+           <style>
+    @media (max-width: 768px) {
+        /* 基本佈局調整 */
+        .resume-section {
+            padding: 2rem 1rem;
+        }
+        
+        /* PDF 處理 */
+        object[data$=".pdf"] {
+            display: none;
+        }
+        
+        .mobile-pdf-button {
+            display: block !important;
+            text-align: center;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 0.5rem;
+        }
+        
+        .btn-download {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: #bd5d38;
+            color: white;
+            border-radius: 0.25rem;
+            text-decoration: none;
+        }
+        
+        /* 圖片排版調整 */
+        .col-6, .col-md-6 {
+            width: 100% !important;
+            padding: 0 15px;
+            margin-bottom: 20px;
+        }
+        
+        .row.g-3 {
+            margin: 0;
+        }
+        
+        /* 移除固定高度限制 */
+        div[style*="height"] {
+            height: auto !important;
+            max-height: none;
+        }
+        
+        /* 圖片樣式優化 */
+        .img-fluid {
+            width: 100% !important;
+            height: auto !important;
+            max-height: 400px;
+            object-fit: contain !important;
+            margin-bottom: 10px;
+        }
+        
+        /* Toyota 專案圖片調整 */
+        div[style*="width: 40%"] {
+            width: 100% !important;
+        }
+        
+        /* 導航欄調整 */
+        #sideNav {
+            padding: 1rem;
+        }
+        
+        .navbar-brand img {
+            max-width: 8rem;
+        }
+        
+        /* 社交圖標調整 */
+        .social-icons .social-icon {
+            width: 3rem;
+            height: 3rem;
+            font-size: 1.25rem;
+            margin: 0.5rem;
+        }
+        
+        /* 標籤調整 */
+        .badge {
+            margin: 0.25rem;
+            display: inline-block;
+        }
+    }
+    
+    /* 桌面版隱藏移動端按鈕 */
+    .mobile-pdf-button {
         display: none;
     }
     
-    .pdf-mobile-link {
-        display: block !important;
-        background: #f8f9fa;
-        padding: 1rem;
-        margin: 1rem 0;
-        border-radius: 0.5rem;
-        text-align: center;
+    /* PDF 按鈕樣式 */
+    .btn-download:hover {
+        background-color: #a24b2c;
+        color: white;
+        text-decoration: none;
     }
-    
-    /* 圖片處理 */
-    .img-container {
-        margin-bottom: 1rem;
-    }
-    
-    .img-container img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        border-radius: 0.5rem;
-    }
-    
-    /* 導航欄調整 */
-    #sideNav {
-        padding: 1rem;
-    }
-    
-    .navbar-brand img {
-        max-width: 8rem;
-    }
-    
-    /* 內容間距調整 */
-    .resume-section {
-        padding: 3rem 1rem;
-    }
-    
-    /* 標籤適應 */
-    .badge {
-        margin-bottom: 0.5rem;
-        display: inline-block;
-    }
-    
-    /* 社交圖標調整 */
-    .social-icons .social-icon {
-        width: 3rem;
-        height: 3rem;
-        font-size: 1.25rem;
-    }
-}
-
-/* 替換 PDF 顯示為下載按鈕 */
-@media (max-width: 768px) {
-    object[data$=".pdf"] {
-        display: none;
-    }
-    
-    object[data$=".pdf"] + .mobile-pdf-button {
-        display: block !important;
-    }
-}
-
-/* 新增的通用類 */
-.mobile-pdf-button {
-    display: none;
-    text-align: center;
-    margin: 1rem 0;
-}
-
-.btn-download {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: #bd5d38;
-    color: white;
-    border-radius: 0.25rem;
-    text-decoration: none;
-}
-
-.btn-download:hover {
-    background-color: #a24b2c;
-    color: white;
-}
-</style>
-
+    </style>
 <!-- 在每個 PDF object 後添加的下載按鈕 HTML -->
 <div class="mobile-pdf-button">
     <a href="您的PDF路徑" class="btn-download" download>
